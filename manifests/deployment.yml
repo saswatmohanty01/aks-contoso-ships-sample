@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: akscontososhipssample 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akscontososhipssample
+  template:
+    metadata:
+      labels:
+        app: akscontososhipssample 
+    spec:
+      containers:
+        - name: akscontososhipssample 
+          image: demoday.azurecr.io/akscontososhipssample
+          ports:
+          - containerPort: 3000
