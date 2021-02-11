@@ -39,7 +39,7 @@ kind: Service
 metadata:
   name: contoso-ship-manager-frontend
 spec:
-  type: LoadBalancer
+  # type: LoadBalancer
   selector:
     app: contoso-ship-manager-frontend
   ports:
@@ -47,21 +47,21 @@ spec:
       port: 80
       targetPort: 80
 ---
-#apiVersion: networking.k8s.io/v1beta1
-#kind: Ingress
-#metadata:
-#  name: contoso-ship-manager-frontend
-#  annotations:
-#    kubernetes.io/ingress.class: addon-http-application-routing
-#spec:
-#  rules:
-#    - host: contoso-ship-manager-frontend.5da3fbaff23b4572b4b5.eastus.aksapp.io
-#      http:
-#        paths:
-#          - path: /
-#            backend:
-#              serviceName: contoso-ship-manager-frontend
-#              servicePort: http
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+ name: contoso-ship-manager-frontend
+ annotations:
+   kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+ rules:
+   - host: contoso-ship-manager-frontend.5da3fbaff23b4572b4b5.eastus.aksapp.io
+     http:
+       paths:
+         - path: /
+           backend:
+             serviceName: contoso-ship-manager-frontend
+             servicePort: http
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -71,7 +71,7 @@ data:
   config.js: |
     const config = (() => {
       return {
-        'VUE_APP_BACKEND_BASE_URL': 'http://52.191.37.98',
+        'VUE_APP_BACKEND_BASE_URL': 'http://ship-manager-backend.5da3fbaff23b4572b4b5.eastus.aksapp.io',
       }
     })()
 ---
