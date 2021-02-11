@@ -4,6 +4,8 @@ metadata:
   name: ship-manager-backend
 spec:
   #type: LoadBalancer
+  type: ExternalName
+  externalName: ship-manager-backend.default.svc.cluster.local
   selector:
     app: ship-manager-backend
   ports:
