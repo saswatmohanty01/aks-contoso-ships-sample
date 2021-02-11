@@ -13,7 +13,7 @@ spec:
         app: ship-manager-backend
     spec:
       containers:
-        - image: demoday.azurecr.io/akscontososhipssample
+        - image: demoday.azurecr.io/akscontososhipssamplebackend
           name: ship-manager-backend
           resources:
             requests:
