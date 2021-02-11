@@ -60,7 +60,7 @@ spec:
        paths:
          - path: /
            backend:
-             serviceName: ship-manager-backend
+             serviceName: ship-manager-backend.default.svc.cluster.local
              servicePort: http
 ---
 apiVersion: v1

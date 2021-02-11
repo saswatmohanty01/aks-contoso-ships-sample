@@ -60,7 +60,7 @@ spec:
        paths:
          - path: /
            backend:
-             serviceName: contoso-ship-manager-frontend
+             serviceName: contoso-ship-manager-frontend.default.svc.cluster.local
              servicePort: http
 ---
 apiVersion: v1
