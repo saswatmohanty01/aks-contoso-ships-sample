@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: ship-manager-backend
 spec:
+  type: LoadBalancer
   selector:
     app: ship-manager-backend
   ports:
