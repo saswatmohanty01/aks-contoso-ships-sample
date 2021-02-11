@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: akscontososhipssample
+  name: ship-manager-backend
 spec:
-    type: LoadBalancer
-    ports:
-    - port: 3000 
-    selector:
-        app: akscontososhipssample
+  selector:
+    app: ship-manager-backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
