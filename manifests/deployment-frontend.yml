@@ -34,18 +34,18 @@ spec:
           configMap:
             name: frontend-config
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: contoso-ship-manager-frontend
-spec:
-  type: LoadBalancer
-  selector:
-    app: contoso-ship-manager-frontend
-  ports:
-    - name: http
-      port: 80
-      targetPort: 80
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: contoso-ship-manager-frontend
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app: contoso-ship-manager-frontend
+#   ports:
+#     - name: http
+#       port: 80
+#       targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
