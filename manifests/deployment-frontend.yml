@@ -39,7 +39,7 @@ kind: Service
 metadata:
   name: contoso-ship-manager-frontend
 spec:
-  # type: LoadBalancer
+  type: LoadBalancer
   selector:
     app: contoso-ship-manager-frontend
   ports:
@@ -60,7 +60,7 @@ spec:
        paths:
          - path: /
            backend:
-             serviceName: contoso-ship-manager-frontend.default.svc.cluster.local
+             serviceName: contoso-ship-manager-frontend
              servicePort: http
 ---
 apiVersion: v1
@@ -71,7 +71,7 @@ data:
   config.js: |
     const config = (() => {
       return {
-        'VUE_APP_BACKEND_BASE_URL': 'http://ship-manager-backend.5da3fbaff23b4572b4b5.eastus.aksapp.io',
+        'VUE_APP_BACKEND_BASE_URL': 'http://ship-manager-backend',
       }
     })()
 ---

@@ -47,21 +47,21 @@ spec:
       port: 80
       targetPort: 3000
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
- name: ship-manager-backend
- annotations:
-   kubernetes.io/ingress.class: addon-http-application-routing
-spec:
- rules:
-   - host: ship-manager-backend.5da3fbaff23b4572b4b5.eastus.aksapp.io
-     http:
-       paths:
-         - path: /
-           backend:
-             serviceName: ship-manager-backend.default.svc.cluster.local
-             servicePort: http
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+#  name: ship-manager-backend
+#  annotations:
+#    kubernetes.io/ingress.class: addon-http-application-routing
+# spec:
+#  rules:
+#    - host: ship-manager-backend.5da3fbaff23b4572b4b5.eastus.aksapp.io
+#      http:
+#        paths:
+#          - path: /
+#            backend:
+#              serviceName: ship-manager-backend
+#              servicePort: http
 ---
 apiVersion: v1
 kind: Secret
