@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '0b692bb4-0808-4bab-9822-84f5d9f9ee36'
   imageRepository: 'akscontososhipssample'
   containerRegistry: 'demoday.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: 'backend/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'demoday89287af5-auth'
 
@@ -70,8 +70,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/deployment-backend.yml
+                $(Pipeline.Workspace)/manifests/service-backend.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
